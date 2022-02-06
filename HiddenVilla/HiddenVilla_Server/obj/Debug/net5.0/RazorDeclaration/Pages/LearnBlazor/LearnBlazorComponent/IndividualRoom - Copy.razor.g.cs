@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HiddenVilla_Server.Pages
+namespace HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent
 {
     #line hidden
     using System;
@@ -90,14 +90,13 @@ using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\FetchData.razor"
-using HiddenVilla_Server.Data;
+#line 1 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\IndividualRoom - Copy.razor"
+using HiddenVilla_Server.Model;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
-    public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class IndividualRoom___Copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,19 +104,14 @@ using HiddenVilla_Server.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\FetchData.razor"
+#line 22 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\IndividualRoom - Copy.razor"
        
-    private WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
+    [Parameter]
+    public BlazorRoom Room { get; set; }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private WeatherForecastService ForecastService { get; set; }
     }
 }
 #pragma warning restore 1591

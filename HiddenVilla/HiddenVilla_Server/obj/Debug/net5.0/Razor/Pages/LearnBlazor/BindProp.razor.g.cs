@@ -80,6 +80,13 @@ using HiddenVilla_Server.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\BindProp.razor"
 using Model;
 

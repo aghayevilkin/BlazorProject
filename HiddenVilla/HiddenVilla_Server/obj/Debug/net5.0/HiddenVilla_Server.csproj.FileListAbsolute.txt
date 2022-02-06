@@ -58,3 +58,15 @@ C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Hidde
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\HiddenVilla_Server.csproj.CopyComplete
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\BindProp.razor.g.cs
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\BindProp.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\DemoHotel.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\DemoHotel.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\LearnBlazorComponent\EditDeleteButton.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\LearnBlazorComponent\EditDeleteButton.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\LearnBlazorComponent\IndividualRoom.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\LearnBlazorComponent\IndividualRoom.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\LearnBlazorComponent\IndividualAmenities.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\LearnBlazorComponent\IndividualAmenities.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\Lifecycle.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\Lifecycle.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\LearnBlazorComponent\LifecycleComponent.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\LearnBlazorComponent\LifecycleComponent.razor.g.cs

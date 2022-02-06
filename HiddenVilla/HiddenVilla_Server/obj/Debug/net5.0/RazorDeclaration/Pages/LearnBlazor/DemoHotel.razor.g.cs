@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HiddenVilla_Server.Pages
+namespace HiddenVilla_Server.Pages.LearnBlazor
 {
     #line hidden
     using System;
@@ -90,14 +90,14 @@ using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\FetchData.razor"
-using HiddenVilla_Server.Data;
+#line 2 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\DemoHotel.razor"
+using Model;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
-    public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/demohotel")]
+    public partial class DemoHotel : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,19 +105,94 @@ using HiddenVilla_Server.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\FetchData.razor"
-       
-    private WeatherForecast[] forecasts;
+#line 35 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\DemoHotel.razor"
+      
 
-    protected override async Task OnInitializedAsync()
+    public int SelectedRooms { get; set; } = 0;
+    public string SelectedAmenity { get; set; } = "";
+    List<BlazorRoom> RoomList = new List<BlazorRoom>();
+    List<BlazorAmenities> AmenitiesList = new List<BlazorAmenities>();
+
+
+    protected override void OnInitialized()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        base.OnInitialized();
+
+        RoomList.Add(new BlazorRoom()
+        {
+            Id = 201,
+            RoomName = "Villa Suite One Bed Room",
+            IsActive = true,
+            Price = 399,
+            RoomProps = new List<BlazorRoomProp>
+        {
+            new BlazorRoomProp{Id=1,Name="Sq Ft",Value="330"},
+            new BlazorRoomProp{Id=2,Name="Occupancy",Value="4"},
+            }
+        });
+
+
+        RoomList.Add(new BlazorRoom()
+        {
+            Id = 301,
+            RoomName = "Villa Suite Two Bed Room",
+            IsActive = true,
+            Price = 699,
+            RoomProps = new List<BlazorRoomProp>
+        {
+            new BlazorRoomProp{Id=1,Name="Sq Ft",Value="150"},
+            new BlazorRoomProp{Id=2,Name="Occupancy",Value="6"},
+            }
+        });
+
+
+
+        AmenitiesList.Add(new BlazorAmenities
+        {
+            Id = 111,
+            Name = "Gym",
+            Description = "24x7 gym room is avaliable.",
+        });
+        AmenitiesList.Add(new BlazorAmenities
+        {
+            Id = 222,
+            Name = "Swimming Pool",
+            Description = "Pool room is open from 6am to 10pm.",
+        });
+        AmenitiesList.Add(new BlazorAmenities
+        {
+            Id = 333,
+            Name = "Free Breakfast",
+            Description = "Enjoy free breakfast at out hotel.",
+        });
+
+
     }
+
+
+    protected void RoomSelectionCounterChanged(bool isRooSelected)
+    {
+        if (isRooSelected)
+        {
+            SelectedRooms++;
+        }
+        else
+        {
+            SelectedRooms--;
+        }
+    }
+
+
+    protected void AmenitySelectionChanged(string amenity)
+    {
+        SelectedAmenity = amenity;
+    }
+
+
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private WeatherForecastService ForecastService { get; set; }
     }
 }
 #pragma warning restore 1591

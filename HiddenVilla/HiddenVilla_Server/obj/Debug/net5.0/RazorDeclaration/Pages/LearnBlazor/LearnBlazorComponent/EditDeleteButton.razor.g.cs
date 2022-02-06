@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HiddenVilla_Server.Pages
+namespace HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent
 {
     #line hidden
     using System;
@@ -89,15 +89,7 @@ using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\FetchData.razor"
-using HiddenVilla_Server.Data;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
-    public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class EditDeleteButton : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,19 +97,14 @@ using HiddenVilla_Server.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\FetchData.razor"
-       
-    private WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
+#line 11 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\EditDeleteButton.razor"
+      
+    [Parameter]
+    public bool IsAdmin { get; set; }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private WeatherForecastService ForecastService { get; set; }
     }
 }
 #pragma warning restore 1591
