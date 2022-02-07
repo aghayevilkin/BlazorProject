@@ -97,7 +97,7 @@ using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Shared\NavMenu.razor"
+#line 48 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

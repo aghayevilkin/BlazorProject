@@ -104,13 +104,19 @@ using HiddenVilla_Server.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\IndividualAmenities.razor"
+#line 11 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\IndividualAmenities.razor"
        
     [Parameter]
     public BlazorAmenities Amenities { get; set; }
 
     [Parameter]
     public EventCallback<string> OnAmenitySelection { get; set; }
+
+    [Parameter]
+    public RenderFragment FirstFragment { get; set; }
+    
+    [Parameter]
+    public RenderFragment SecondFragment { get; set; }
 
     protected async Task AmenitySelectionChanged(MouseEventArgs e, string name)
     {

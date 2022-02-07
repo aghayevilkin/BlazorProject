@@ -105,7 +105,7 @@ using Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 35 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\DemoHotel.razor"
+#line 38 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\DemoHotel.razor"
       
 
     public int SelectedRooms { get; set; } = 0;
