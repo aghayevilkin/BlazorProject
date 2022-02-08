@@ -103,6 +103,13 @@ using Business.Repository.IRepository;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using HiddenVilla_Server.Helper;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/parentcomponent")]
     public partial class ParentComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -112,7 +119,7 @@ using Business.Repository.IRepository;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 23 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\ParentComponent.razor"
+#line 26 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\ParentComponent.razor"
        
 
     //[Parameter]
@@ -122,6 +129,8 @@ using Business.Repository.IRepository;
     //    { "placeholder" , "Enter the Room Name from Parent"},
     //    { "maxlength", 5 },
     //};
+
+    private ChildComponent childComp;
 
     private string messageForGrandChild = "This is a message Grand Parent";
     public string LuckyNumber { get; set; } = "7";

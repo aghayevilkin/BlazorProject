@@ -103,6 +103,13 @@ using Business.Repository.IRepository;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using HiddenVilla_Server.Helper;
+
+#line default
+#line hidden
+#nullable disable
     public partial class ChildComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,7 +118,7 @@ using Business.Repository.IRepository;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\ChildComponent.razor"
+#line 30 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\ChildComponent.razor"
        
     [Parameter]
     public string Title { get; set; }
@@ -128,9 +135,16 @@ using Business.Repository.IRepository;
     //[Parameter]
     //public string MessageForGrandChild { get; set; }
 
+    public async Task ShowToastrSuccess()
+    {
+        await JsRuntime.ToastrSuccess("Woohoo! Success is on its way!");
+    }
+
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
     }
 }
 #pragma warning restore 1591

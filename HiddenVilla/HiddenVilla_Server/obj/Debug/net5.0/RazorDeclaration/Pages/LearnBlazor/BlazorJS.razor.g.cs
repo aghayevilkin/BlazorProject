@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace HiddenVilla_Server.Shared
+namespace HiddenVilla_Server.Pages.LearnBlazor
 {
     #line hidden
     using System;
@@ -110,7 +110,8 @@ using HiddenVilla_Server.Helper;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/blazorjs")]
+    public partial class BlazorJS : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -118,20 +119,55 @@ using HiddenVilla_Server.Helper;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Shared\NavMenu.razor"
+#line 30 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\BlazorJS.razor"
        
-    private bool collapseNavMenu = true;
+    private string ConfirmMessage = "Are you sure you want to click?";
+    private bool ConfirmResult { get; set; }
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    private async Task TestConfirmBox(string message)
     {
-        collapseNavMenu = !collapseNavMenu;
+        ConfirmResult = await JsRuntime.InvokeAsync<bool>("confirm", message);
     }
+
+    private async Task TestSuccess()
+    {
+        await JsRuntime.ToastrSuccess("Success Message");
+    }
+
+    private async Task TestFailure()
+    {
+        await JsRuntime.ToastrError("Error Mesage");
+    }
+
+    private async Task TestInfo()
+    {
+        await JsRuntime.ToastrInfo("Info Mesage");
+    }
+
+    private async Task TestWarning()
+    {
+        await JsRuntime.ToastrWarning("Warning Mesage");
+    }
+
+
+
+
+    private async Task TestSuccessSwal()
+    {
+        await JsRuntime.InvokeVoidAsync("ShowSwal","success", "Task completed succesfuly!");
+    }
+
+    private async Task TestFailureSwal()
+    {
+        await JsRuntime.InvokeVoidAsync("ShowSwal", "error", "Task Failed!");
+    }
+
+
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
     }
 }
 #pragma warning restore 1591

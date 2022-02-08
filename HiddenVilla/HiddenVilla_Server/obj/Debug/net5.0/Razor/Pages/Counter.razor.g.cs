@@ -100,6 +100,13 @@ using Business.Repository.IRepository;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using HiddenVilla_Server.Helper;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {

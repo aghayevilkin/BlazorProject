@@ -130,3 +130,5 @@ C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Model
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Models.pdb
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Business.dll
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Business.pdb
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\LearnBlazor\BlazorJS.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\LearnBlazor\BlazorJS.razor.g.cs
