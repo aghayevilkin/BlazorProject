@@ -87,6 +87,20 @@ using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Business.Repository.IRepository;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\DemoHotel.razor"
 using Model;
 

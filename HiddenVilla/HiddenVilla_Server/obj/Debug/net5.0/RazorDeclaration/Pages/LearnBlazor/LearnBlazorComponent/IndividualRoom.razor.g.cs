@@ -90,6 +90,20 @@ using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponent;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Business.Repository.IRepository;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\IndividualRoom.razor"
 using HiddenVilla_Server.Model;
 
