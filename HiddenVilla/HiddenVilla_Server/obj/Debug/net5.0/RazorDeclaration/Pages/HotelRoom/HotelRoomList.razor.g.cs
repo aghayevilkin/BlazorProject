@@ -110,6 +110,20 @@ using HiddenVilla_Server.Helper;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using HiddenVilla_Server.Service.IService;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Blazored.TextEditor;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/hotelroom")]
     public partial class HotelRoomList : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -119,18 +133,55 @@ using HiddenVilla_Server.Helper;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelRoom\HotelRoomList.razor"
+#line 58 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelRoom\HotelRoomList.razor"
        
     private IEnumerable<HotelRoomDTO> HotelRooms { get; set; } = new List<HotelRoomDTO>();
+    private int? DeleteRoomId { get; set; } = null;
+    private bool IsProcessing { get; set; } = false;
+
 
     protected override async Task OnInitializedAsync()
     {
         HotelRooms = await HotelRoomRepository.GetAllHotelRooms();
     }
 
+
+
+    private async Task HandleDelete(int roomId)
+    {
+        DeleteRoomId = roomId;
+        await JsRuntime.InvokeVoidAsync("ShowDeleteConfirmationModal");
+    }
+
+
+    public async Task ConfirmDelete_Click(bool isConfirmed)
+    {
+        IsProcessing = true;
+
+        if (isConfirmed && DeleteRoomId != null)
+        {
+            HotelRoomDTO hotelRoom = await HotelRoomRepository.GetHotelRoom(DeleteRoomId.Value);
+            foreach (var image in hotelRoom.HotelRoomImages)
+            {
+                var imageName = image.RoomImageUrl.Replace($"{NavigationManager.BaseUri}RoomImages/", "");
+                FileUpload.DeleteFile(imageName);
+            }
+
+            await HotelRoomRepository.DeleteHotelRoom(DeleteRoomId.Value);
+            await JsRuntime.ToastrSuccess("Hotel Room Deleted successfully");
+            HotelRooms = await HotelRoomRepository.GetAllHotelRooms();
+        }
+        await JsRuntime.InvokeVoidAsync("HideDeleteConfirmationModal");
+
+        IsProcessing = false;
+    }
+
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFileUpload FileUpload { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JsRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHotelRoomRepository HotelRoomRepository { get; set; }
     }
