@@ -124,6 +124,13 @@ using Blazored.TextEditor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 17 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Common;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/hotelroom/create")]
     [Microsoft.AspNetCore.Components.RouteAttribute("/hotelroom/edit/{Id:int}")]
     public partial class HotelRoomUpsert : Microsoft.AspNetCore.Components.ComponentBase
@@ -134,7 +141,7 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 110 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelRoom\HotelRoomUpsert.razor"
+#line 111 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelRoom\HotelRoomUpsert.razor"
        
 
     [Parameter]
@@ -148,9 +155,19 @@ using Blazored.TextEditor;
 
     private bool IsImageUploadProcessStarted { get; set; } = false;
 
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthenticationState { get; set; }
+
 
     protected override async Task OnInitializedAsync()
     {
+        var authenticationState = await AuthenticationState;
+        if (!authenticationState.User.IsInRole(SD.Role_Admin))
+        {
+            var uri = new Uri(NavigationManager.Uri);
+            NavigationManager.NavigateTo($"/identity/account/login?returnUrl={uri.LocalPath}");
+        }
+
         if (Id != null)
         {
             //Updating
@@ -200,7 +217,7 @@ using Blazored.TextEditor;
 
         try
         {
-            var roomDetailsByName = await HotelRoomRepository.IsRoomUnique(HotelRoomModel.Name,HotelRoomModel.Id);
+            var roomDetailsByName = await HotelRoomRepository.IsRoomUnique(HotelRoomModel.Name, HotelRoomModel.Id);
             if (roomDetailsByName != null)
             {
                 await JsRuntime.ToastrError("Room name already exists.");
@@ -216,7 +233,7 @@ using Blazored.TextEditor;
                     || (DeletedImageNames != null && DeletedImageNames.Any())
                     )
                 {
-                    if (DeletedImageNames!=null && DeletedImageNames.Any())
+                    if (DeletedImageNames != null && DeletedImageNames.Any())
                     {
                         foreach (var deletedImageName in DeletedImageNames)
                         {
@@ -274,7 +291,7 @@ using Blazored.TextEditor;
                 foreach (var file in e.GetMultipleFiles())
                 {
                     System.IO.FileInfo fileInfo = new System.IO.FileInfo(file.Name);
-                    if (fileInfo.Extension.ToLower()==".jpg" ||
+                    if (fileInfo.Extension.ToLower() == ".jpg" ||
                         fileInfo.Extension.ToLower() == ".png" ||
                         fileInfo.Extension.ToLower() == ".jpeg")
                     {

@@ -124,6 +124,20 @@ using Blazored.TextEditor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 17 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Common;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelAmenity\HotelAmenityList.razor"
+           [Authorize(Roles = SD.Role_Admin)]
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/hotelamenity")]
     public partial class HotelAmenityList : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -133,7 +147,7 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelAmenity\HotelAmenityList.razor"
+#line 59 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelAmenity\HotelAmenityList.razor"
        
     private IEnumerable<HotelAmenityDTO> HotelAmenities { get; set; } = new List<HotelAmenityDTO>();
     private int? DeleteAmenityId { get; set; } = null;

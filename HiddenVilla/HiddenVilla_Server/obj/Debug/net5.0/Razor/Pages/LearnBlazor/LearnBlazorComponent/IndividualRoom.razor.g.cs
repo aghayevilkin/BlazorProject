@@ -122,6 +122,13 @@ using Blazored.TextEditor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 17 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Common;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\LearnBlazorComponent\IndividualRoom.razor"
 using HiddenVilla_Server.Model;
 

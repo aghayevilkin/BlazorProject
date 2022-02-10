@@ -124,6 +124,20 @@ using Blazored.TextEditor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 17 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Common;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelAmenity\HotelAmenityUpsert.razor"
+           [Authorize(Roles = SD.Role_Admin)]
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/hotelamenity/create")]
     [Microsoft.AspNetCore.Components.RouteAttribute("/hotelamenity/edit/{Id:int}")]
     public partial class HotelAmenityUpsert : Microsoft.AspNetCore.Components.ComponentBase
@@ -134,7 +148,7 @@ using Blazored.TextEditor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelAmenity\HotelAmenityUpsert.razor"
+#line 51 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\HotelAmenity\HotelAmenityUpsert.razor"
        
     [Parameter]
     public int? Id { get; set; }

@@ -6,14 +6,15 @@
 @inject IJSRuntime JsRuntime
 @inject IFileUpload FileUpload
 
+
 <div class="row mt-2 mb-5">
     <h3 class="card-title text-info mb-3 ml-3">@Title Hotel Room</h3>
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <EditForm Model="HotelRoomModel" OnValidSubmit="HandleHotelRoomUpsert">
-                    <DataAnnotationsValidator/>
-                    <ValidationSummary/>
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
                     <div class="form-group">
                         <label>Name</label>
                         <InputText @bind-Value="HotelRoomModel.Name" class="form-control"></InputText>
@@ -91,7 +92,7 @@
                                         </div>
                                         <button type="button" @onclick="()=>DeletePhoto(roomImage)" class="btn btn-outline-danger btn-block mt-4"> Delete</button>
                                     </div>
-                                    
+
                                     serial++;
                                 }
                             }
@@ -120,9 +121,19 @@
 
     private bool IsImageUploadProcessStarted { get; set; } = false;
 
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthenticationState { get; set; }
+
 
     protected override async Task OnInitializedAsync()
     {
+        var authenticationState = await AuthenticationState;
+        if (!authenticationState.User.IsInRole(SD.Role_Admin))
+        {
+            var uri = new Uri(NavigationManager.Uri);
+            NavigationManager.NavigateTo($"/identity/account/login?returnUrl={uri.LocalPath}");
+        }
+
         if (Id != null)
         {
             //Updating
@@ -172,7 +183,7 @@
 
         try
         {
-            var roomDetailsByName = await HotelRoomRepository.IsRoomUnique(HotelRoomModel.Name,HotelRoomModel.Id);
+            var roomDetailsByName = await HotelRoomRepository.IsRoomUnique(HotelRoomModel.Name, HotelRoomModel.Id);
             if (roomDetailsByName != null)
             {
                 await JsRuntime.ToastrError("Room name already exists.");
@@ -188,7 +199,7 @@
                     || (DeletedImageNames != null && DeletedImageNames.Any())
                     )
                 {
-                    if (DeletedImageNames!=null && DeletedImageNames.Any())
+                    if (DeletedImageNames != null && DeletedImageNames.Any())
                     {
                         foreach (var deletedImageName in DeletedImageNames)
                         {
@@ -246,7 +257,7 @@
                 foreach (var file in e.GetMultipleFiles())
                 {
                     System.IO.FileInfo fileInfo = new System.IO.FileInfo(file.Name);
-                    if (fileInfo.Extension.ToLower()==".jpg" ||
+                    if (fileInfo.Extension.ToLower() == ".jpg" ||
                         fileInfo.Extension.ToLower() == ".png" ||
                         fileInfo.Extension.ToLower() == ".jpeg")
                     {
