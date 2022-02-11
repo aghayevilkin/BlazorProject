@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<CustomUser>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
