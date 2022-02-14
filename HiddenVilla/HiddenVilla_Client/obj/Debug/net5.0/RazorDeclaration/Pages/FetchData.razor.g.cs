@@ -112,7 +112,21 @@ using HiddenVilla_Client.Helper;
 #nullable disable
 #nullable restore
 #line 15 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
 using Common;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using HiddenVilla_Client.Service.IService;
 
 #line default
 #line hidden

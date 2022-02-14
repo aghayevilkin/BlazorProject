@@ -112,7 +112,21 @@ using HiddenVilla_Client.Helper;
 #nullable disable
 #nullable restore
 #line 15 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 16 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
 using Common;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 17 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using HiddenVilla_Client.Service.IService;
 
 #line default
 #line hidden
@@ -126,10 +140,19 @@ using Common;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 89 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\Index.razor"
+#line 104 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\Index.razor"
       
 
     public HomeVM HomeModel { get; set; } = new HomeVM();
+    public IEnumerable<HotelAmenityDTO> HotelAmenities { get; set; } = new List<HotelAmenityDTO>();
+    public bool IsProcessing { get; set; } = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        IsProcessing = true;
+        HotelAmenities = await hotelAmenityService.GetHotelAmenities();
+        IsProcessing = false;
+    }
 
     private async Task SaveInitialData()
     {
@@ -151,6 +174,7 @@ using Common;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHotelAmenityService hotelAmenityService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILocalStorageService localStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }

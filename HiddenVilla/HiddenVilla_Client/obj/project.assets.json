@@ -8828,6 +8828,7 @@
       "Common >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 5.0.13",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.13",
+      "Models >= 1.0.0",
       "System.Net.Http.Json >= 5.0.0"
     ]
   },
@@ -8868,6 +8869,9 @@
             },
             "C:\\Users\\ASUS\\source\\repos\\HiddenVilla\\Common\\Common.csproj": {
               "projectPath": "C:\\Users\\ASUS\\source\\repos\\HiddenVilla\\Common\\Common.csproj"
+            },
+            "C:\\Users\\ASUS\\source\\repos\\HiddenVilla\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\source\\repos\\HiddenVilla\\Models\\Models.csproj"
             }
           }
         }

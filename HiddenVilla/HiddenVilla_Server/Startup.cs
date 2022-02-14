@@ -37,7 +37,7 @@ namespace HiddenVilla_Server
             services.AddDbContext<AppDbContext>(options =>
                                            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<CustomUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders().AddDefaultUI();
 
 
