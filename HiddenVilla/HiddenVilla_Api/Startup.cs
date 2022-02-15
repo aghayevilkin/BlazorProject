@@ -75,6 +75,7 @@ namespace HiddenVilla_Api
             services.AddScoped<IHotelRoomRepository, HotelRoomRepository>();
             services.AddScoped<IHotelImagesRepository, HotelImagesRepository>();
             services.AddScoped<IHotelAmenityRepository, HotelAmenityRepository>();
+            services.AddScoped<IRoomOrderDetailsRepository, RoomOrderDetailsRepository>();
 
             services.AddCors(o => o.AddPolicy("HiddenVilla", builder => {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();

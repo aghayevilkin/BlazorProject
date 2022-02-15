@@ -1492,6 +1492,7 @@
       "Business/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
+          "Common": "1.0.0",
           "DataAccess": "1.0.0",
           "Models": "1.0.0"
         },

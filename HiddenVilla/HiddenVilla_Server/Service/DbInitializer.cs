@@ -44,12 +44,13 @@ namespace HiddenVilla_Server.Service
             _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer)).GetAwaiter().GetResult();
             _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee)).GetAwaiter().GetResult();
 
-            _userManager.CreateAsync(new IdentityUser
+            _userManager.CreateAsync(new CustomUser
             {
+                Name = "Admin",
                 UserName = "admin@gmail.com",
                 Email = "admin@gmail.com",
                 EmailConfirmed = true
-            },"Admin123*").GetAwaiter().GetResult();
+            }, "Admin123*").GetAwaiter().GetResult();
 
             IdentityUser user = _db.Users.FirstOrDefault(u => u.Email == "admin@gmail.com");
             _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
