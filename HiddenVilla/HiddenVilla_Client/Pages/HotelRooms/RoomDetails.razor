@@ -2,6 +2,8 @@
 @inject IJSRuntime jsRuntime
 @inject ILocalStorageService localStorage
 @inject IHotelRoomService hotelRoomService
+@inject IStripePaymentService stripePaymentService
+@inject IRoomOrderDetailsService roomOrderDetailsService
 
 @if (HotelBooking?.OrderDetails?.HotelRoomDTO?.HotelRoomImages == null)
 {
@@ -67,7 +69,7 @@ else
             </div>
             <div class="col-12 col-lg-5 pt-4 2 mt-4 mt-ms-0" style="border:1px solid #fff">
                 <EditForm Model="HotelBooking" class="container" OnValidSubmit="HandleCheckout">
-                    
+
                     <div class="row px-2 text-success border-bottom"><div class="col-7 py-1"><p style="font-size:x-large; margin:0px;">Enter Details</p></div></div>
 
                     <div class="form-group pt-2">
@@ -109,7 +111,15 @@ else
                         </select>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success form-control">Checkout Now</button>
+
+                        @if (HotelBooking.OrderDetails.HotelRoomDTO.IsBooked)
+                        {
+                            <input class="btn btn-secondary form-control" value="Sold Out" />
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-success form-control">Checkout Now</button>
+                        }
                     </div>
                 </EditForm>
             </div>
@@ -181,6 +191,35 @@ else
         {
             return;
         }
+
+        try
+        {
+            var paymentDTO = new StripePaymentDTO()
+            {
+                Amount = Convert.ToInt32(HotelBooking.OrderDetails.HotelRoomDTO.TotalAmount * 100),
+                ProductName = HotelBooking.OrderDetails.HotelRoomDTO.Name,
+                ReturnUrl = "/hotel/room-details/" + Id
+
+            };
+
+            var result = await stripePaymentService.CheckOut(paymentDTO);
+
+            HotelBooking.OrderDetails.StripeSessionId = result.Data.ToString();
+            HotelBooking.OrderDetails.RoomId = HotelBooking.OrderDetails.HotelRoomDTO.Id;
+            HotelBooking.OrderDetails.TotalCost = HotelBooking.OrderDetails.HotelRoomDTO.TotalAmount;
+
+            var roomOrderDetailsSaved = await roomOrderDetailsService.SaveRoomOrderDetails(HotelBooking.OrderDetails);
+
+            await localStorage.SetItemAsync(SD.Local_RoomOrderDetails, roomOrderDetailsSaved);
+
+            await jsRuntime.InvokeVoidAsync("redirectToCheckout", result.Data.ToString());
+        }
+        catch (Exception e)
+        {
+
+            await jsRuntime.ToastrError(e.Message);
+        }
+
     }
 
     private async Task<bool> HandleValidation()

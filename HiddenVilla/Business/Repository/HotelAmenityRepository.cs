@@ -51,7 +51,7 @@ namespace Business.Repository
 
                 return hotelAmenityDTO;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return null;
@@ -67,7 +67,7 @@ namespace Business.Repository
 
                 return hotelAmenity;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return null;
@@ -94,7 +94,7 @@ namespace Business.Repository
                     return null;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return null;

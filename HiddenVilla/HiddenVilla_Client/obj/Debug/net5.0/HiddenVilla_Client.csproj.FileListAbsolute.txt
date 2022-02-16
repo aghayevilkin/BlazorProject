@@ -738,3 +738,5 @@ C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\build
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\build-gz\IYr0PLSY.gz
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\RazorDeclaration\Pages\HotelRooms\RoomDetails.razor.g.cs
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\Razor\Pages\HotelRooms\RoomDetails.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\RazorDeclaration\Pages\Stripe\Success_Payment.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\Razor\Pages\Stripe\Success_Payment.razor.g.cs

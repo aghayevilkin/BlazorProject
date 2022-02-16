@@ -1,5 +1,5 @@
 ﻿redirectToCheckout = function (sessionId) {
-    var stripe = Stripe('pk_test_51HuidRES6XguoEyXQbu9mQoeVsUgj2vZu5KcspDQd3fPojBsftW15gTQw4GjQ6Jt4AlCLKzta7iHAKp3Ccfi6jYr00mmbTUIZR');
+    var stripe = Stripe('pk_test_51KTgXeKgyLsNtiJcannrqo5en260V5qTuv7khCjKYtdoSve71zQmUjDdqVUMmhuc0eEKNbm1QOhzgMoMWCcUSumj00VbKk6RVV');
     stripe.redirectToCheckout({
         sessionId: sessionId
     });

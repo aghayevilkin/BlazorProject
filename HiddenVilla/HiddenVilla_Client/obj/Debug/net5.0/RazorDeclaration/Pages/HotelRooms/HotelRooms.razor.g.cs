@@ -140,7 +140,7 @@ using HiddenVilla_Client.Service.IService;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 158 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\HotelRooms\HotelRooms.razor"
+#line 166 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\HotelRooms\HotelRooms.razor"
        
     private HomeVM HomeModel { get; set; } = new HomeVM();
     public IEnumerable<HotelRoomDTO> Rooms { get; set; } = new List<HotelRoomDTO>();

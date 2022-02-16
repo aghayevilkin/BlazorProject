@@ -78,29 +78,51 @@ namespace Business.Repository
             }
         }
 
-        public async Task<bool> IsRoomBooked(int RoomId, DateTime checkInDate, DateTime checkOutDate)
-        {
-            var status = false;
-            var existingBooking = await _db.RoomOrderDetails.Where(x => x.Id == RoomId && x.IsPaymentSuccessful &&
-            (checkInDate < x.CheckOutDate && checkInDate.Date > x.CheckInDate
-            || checkOutDate.Date > x.CheckInDate.Date && checkInDate.Date < x.CheckInDate.Date
-            )).FirstOrDefaultAsync();
+        
 
-            if (existingBooking != null)
+        public async Task<RoomOrderDetailsDTO> MarkPaymentSuccessful(int id)
+        {
+            var data = await _db.RoomOrderDetails.FindAsync(id);
+            if (data == null)
             {
-                status = true;
+                return null;
             }
-            return status;
+            if (!data.IsPaymentSuccessful)
+            {
+                data.IsPaymentSuccessful = true;
+                data.Status = SD.Status_Booked;
+                var markPaymentSuccessful = _db.RoomOrderDetails.Update(data);
+                await _db.SaveChangesAsync();
+                return _mapper.Map<RoomOrderDetails, RoomOrderDetailsDTO>(markPaymentSuccessful.Entity);
+            }
+            return new RoomOrderDetailsDTO();
         }
 
-        public Task<RoomOrderDetailsDTO> MarkPaymentSuccessful(int id)
+        public async Task<bool> UpdateOrderStatus(int RoomOrderId, string status)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> UpdateOrderStatus(int RoomOrderId, string status)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                var roomOrder = await _db.RoomOrderDetails.FirstOrDefaultAsync(u => u.Id == RoomOrderId);
+                if (roomOrder == null)
+                {
+                    return false;
+                }
+                roomOrder.Status = status;
+                if (status == SD.Status_CheckedIn)
+                {
+                    roomOrder.ActualCheckInDate = DateTime.Now;
+                }
+                if (status == SD.Status_CheckedOut_Completed)
+                {
+                    roomOrder.ActualCheckOutDate = DateTime.Now;
+                }
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

@@ -150,8 +150,8 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("TotalCost")
-                        .HasColumnType("bigint");
+                    b.Property<double>("TotalCost")
+                        .HasColumnType("float");
 
                     b.Property<string>("UserId")
                         .IsRequired()

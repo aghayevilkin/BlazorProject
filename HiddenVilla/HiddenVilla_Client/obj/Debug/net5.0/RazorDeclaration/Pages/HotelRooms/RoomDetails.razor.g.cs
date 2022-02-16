@@ -140,7 +140,7 @@ using HiddenVilla_Client.Service.IService;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 122 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\HotelRooms\RoomDetails.razor"
+#line 132 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\HotelRooms\RoomDetails.razor"
        
     [Parameter]
     public int? Id { get; set; }
@@ -203,6 +203,35 @@ using HiddenVilla_Client.Service.IService;
         {
             return;
         }
+
+        try
+        {
+            var paymentDTO = new StripePaymentDTO()
+            {
+                Amount = Convert.ToInt32(HotelBooking.OrderDetails.HotelRoomDTO.TotalAmount * 100),
+                ProductName = HotelBooking.OrderDetails.HotelRoomDTO.Name,
+                ReturnUrl = "/hotel/room-details/" + Id
+
+            };
+
+            var result = await stripePaymentService.CheckOut(paymentDTO);
+
+            HotelBooking.OrderDetails.StripeSessionId = result.Data.ToString();
+            HotelBooking.OrderDetails.RoomId = HotelBooking.OrderDetails.HotelRoomDTO.Id;
+            HotelBooking.OrderDetails.TotalCost = HotelBooking.OrderDetails.HotelRoomDTO.TotalAmount;
+
+            var roomOrderDetailsSaved = await roomOrderDetailsService.SaveRoomOrderDetails(HotelBooking.OrderDetails);
+
+            await localStorage.SetItemAsync(SD.Local_RoomOrderDetails, roomOrderDetailsSaved);
+
+            await jsRuntime.InvokeVoidAsync("redirectToCheckout", result.Data.ToString());
+        }
+        catch (Exception e)
+        {
+
+            await jsRuntime.ToastrError(e.Message);
+        }
+
     }
 
     private async Task<bool> HandleValidation()
@@ -229,6 +258,8 @@ using HiddenVilla_Client.Service.IService;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IRoomOrderDetailsService roomOrderDetailsService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IStripePaymentService stripePaymentService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHotelRoomService hotelRoomService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILocalStorageService localStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime jsRuntime { get; set; }
