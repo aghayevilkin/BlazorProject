@@ -131,6 +131,20 @@ using HiddenVilla_Client.Service.IService;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 18 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using Microsoft.AspNetCore.Components.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998

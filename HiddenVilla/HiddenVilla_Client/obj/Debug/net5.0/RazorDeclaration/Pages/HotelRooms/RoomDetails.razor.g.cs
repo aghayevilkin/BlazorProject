@@ -131,6 +131,20 @@ using HiddenVilla_Client.Service.IService;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 18 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using Microsoft.AspNetCore.Components.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\_Imports.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/hotel/room-details/{Id:int}")]
     public partial class RoomDetails : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -140,7 +154,7 @@ using HiddenVilla_Client.Service.IService;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 132 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\HotelRooms\RoomDetails.razor"
+#line 133 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\Pages\HotelRooms\RoomDetails.razor"
        
     [Parameter]
     public int? Id { get; set; }
@@ -176,6 +190,16 @@ using HiddenVilla_Client.Service.IService;
                     HotelBooking.OrderDetails.HotelRoomDTO.TotalAmount = HotelBooking.OrderDetails.HotelRoomDTO.RegularRate;
                 }
             }
+
+            if (await localStorage.GetItemAsync<UserDTO>(SD.Local_UserDetails) != null)
+            {
+                var userInfo = await localStorage.GetItemAsync<UserDTO>(SD.Local_UserDetails);
+                HotelBooking.OrderDetails.UserId = userInfo.Id;
+                HotelBooking.OrderDetails.Name = userInfo.Name;
+                HotelBooking.OrderDetails.Email = userInfo.Email;
+                HotelBooking.OrderDetails.Phone = userInfo.PhoneNo;
+            }
+
         }
         catch (Exception e)
         {
