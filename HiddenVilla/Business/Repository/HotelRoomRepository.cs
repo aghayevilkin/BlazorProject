@@ -49,34 +49,44 @@ namespace Business.Repository
             return 0;
         }
 
-        public async Task<IEnumerable<HotelRoomDTO>> GetAllHotelRooms(string checkInDate, string checkOutDate)
+        public async Task<IEnumerable<HotelRoomDTO>> GetAllHotelRooms(string checkInDateStr, string checkOutDatestr)
         {
             try
             {
                 IEnumerable<HotelRoomDTO> hotelRoomDTOs =
-                    _mapper.Map<IEnumerable<HotelRoom>, IEnumerable<HotelRoomDTO>>(_db.HotelRooms.Include(x=>x.HotelRoomImages));
-
+                            _mapper.Map<IEnumerable<HotelRoom>, IEnumerable<HotelRoomDTO>>
+                            (_db.HotelRooms.Include(x => x.HotelRoomImages));
+                if (!string.IsNullOrEmpty(checkInDateStr) && !string.IsNullOrEmpty(checkOutDatestr))
+                {
+                    foreach (HotelRoomDTO hotelRoom in hotelRoomDTOs)
+                    {
+                        hotelRoom.IsBooked = await IsRoomBooked(hotelRoom.Id, checkInDateStr, checkOutDatestr);
+                    }
+                }
                 return hotelRoomDTOs;
             }
             catch (Exception)
             {
-
                 return null;
             }
         }
 
-        public async Task<HotelRoomDTO> GetHotelRoom(int roomId, string checkInDate, string checkOutDate)
+        public async Task<HotelRoomDTO> GetHotelRoom(int roomId, string checkInDateStr, string checkOutDatestr)
         {
             try
             {
-                HotelRoomDTO hotelRoom = _mapper.Map<HotelRoom,HotelRoomDTO>( 
-                    await _db.HotelRooms.Include(x=>x.HotelRoomImages).FirstOrDefaultAsync(x => x.Id == roomId));
+                HotelRoomDTO hotelRoom = _mapper.Map<HotelRoom, HotelRoomDTO>(
+                    await _db.HotelRooms.Include(x => x.HotelRoomImages).FirstOrDefaultAsync(x => x.Id == roomId));
+
+                if (!string.IsNullOrEmpty(checkInDateStr) && !string.IsNullOrEmpty(checkOutDatestr))
+                {
+                    hotelRoom.IsBooked = await IsRoomBooked(roomId, checkInDateStr, checkOutDatestr);
+                }
 
                 return hotelRoom;
             }
             catch (Exception)
             {
-
                 return null;
             }
         }
@@ -106,9 +116,9 @@ namespace Business.Repository
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
