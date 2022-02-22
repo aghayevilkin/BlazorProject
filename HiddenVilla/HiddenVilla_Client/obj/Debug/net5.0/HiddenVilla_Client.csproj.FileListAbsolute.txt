@@ -749,3 +749,5 @@ C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\Razor
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\Razor\Pages\Authentication\Register.razor.g.cs
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\RazorDeclaration\Pages\Authentication\Logout.razor.g.cs
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\Razor\Pages\Authentication\Logout.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\RazorDeclaration\Pages\Authentication\RedirectToLogin.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Client\obj\Debug\net5.0\Razor\Pages\Authentication\RedirectToLogin.razor.g.cs

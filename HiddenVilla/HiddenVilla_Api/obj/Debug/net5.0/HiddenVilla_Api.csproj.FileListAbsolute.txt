@@ -83,3 +83,7 @@ C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\Microsof
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\Stripe.net.dll
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\HiddenVilla_Api.StaticWebAssets.xml
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Api\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
