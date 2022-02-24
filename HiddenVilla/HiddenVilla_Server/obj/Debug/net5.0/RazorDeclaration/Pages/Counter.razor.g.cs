@@ -131,6 +131,41 @@ using Common;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 18 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 20 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 21 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Business;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 22 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Business.Repository;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -140,18 +175,22 @@ using Common;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\Counter.razor"
+#line 11 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\Counter.razor"
        
     private int currentCount = 0;
 
-    private void IncrementCount()
+    private async Task IncrementCount()
     {
         currentCount++;
+        await localStorage.SetAsync("counterLocal",currentCount);
+        await sessionStorage.SetAsync("counterSession",currentCount);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProtectedSessionStorage sessionStorage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProtectedLocalStorage localStorage { get; set; }
     }
 }
 #pragma warning restore 1591

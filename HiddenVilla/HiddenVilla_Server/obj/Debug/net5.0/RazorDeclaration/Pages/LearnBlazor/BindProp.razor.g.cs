@@ -132,6 +132,41 @@ using Common;
 #line hidden
 #nullable disable
 #nullable restore
+#line 18 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 20 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 21 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Business;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 22 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\_Imports.razor"
+using Business.Repository;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\BindProp.razor"
 using Model;
 
@@ -147,10 +182,12 @@ using Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\BindProp.razor"
+#line 52 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\BindProp.razor"
       
     string SelectRoomProp = "";
     List<BlazorRoom> RoomList = new List<BlazorRoom>();
+    public int CounterLocal { get; set; }
+    public int CounterSession { get; set; }
 
     BlazorRoom Room = new BlazorRoom()
     {
@@ -159,7 +196,7 @@ using Model;
         IsActive = true,
         Price = 499,
         RoomProps = new List<BlazorRoomProp>
-        {
+    {
             new BlazorRoomProp{Id=1,Name="Sq Ft",Value="100"},
             new BlazorRoomProp{Id=2,Name="Occupancy",Value="3"},
         }
@@ -167,37 +204,64 @@ using Model;
 
 
 
-    protected override void OnInitialized()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        base.OnInitialized();
 
-        RoomList.Add(new BlazorRoom()
+        
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 76 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\BindProp.razor"
+         if (firstRender)
         {
-            Id = 201,
-            RoomName = "Villa Suite One Bed Room",
-            IsActive = true,
-            Price = 399,
-            RoomProps = new List<BlazorRoomProp>
+            var resultLocal = await localStorage.GetAsync<int>("counterLocal");
+            CounterLocal = resultLocal.Success ? resultLocal.Value : 0;
+
+            var resultSession = await sessionStorage.GetAsync<int>("counterSession");
+            CounterSession = resultSession.Success ? resultSession.Value : 0;
+
+
+
+            RoomList.Add(new BlazorRoom()
+            {
+                Id = 201,
+                RoomName = "Villa Suite One Bed Room",
+                IsActive = true,
+                Price = 399,
+                RoomProps = new List<BlazorRoomProp>
             {
             new BlazorRoomProp{Id=1,Name="Sq Ft",Value="330"},
             new BlazorRoomProp{Id=2,Name="Occupancy",Value="4"},
             }
-        });
+            });
 
 
-        RoomList.Add(new BlazorRoom()
-        {
-            Id = 301,
-            RoomName = "Villa Suite Two Bed Room",
-            IsActive = true,
-            Price = 699,
-            RoomProps = new List<BlazorRoomProp>
+            RoomList.Add(new BlazorRoom()
+            {
+                Id = 301,
+                RoomName = "Villa Suite Two Bed Room",
+                IsActive = true,
+                Price = 699,
+                RoomProps = new List<BlazorRoomProp>
             {
             new BlazorRoomProp{Id=1,Name="Sq Ft",Value="150"},
             new BlazorRoomProp{Id=2,Name="Occupancy",Value="6"},
             }
-        });
+            });
 
+
+            StateHasChanged();
+        }
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 115 "C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\Pages\LearnBlazor\BindProp.razor"
+         
+    
     }
 
 
@@ -205,6 +269,8 @@ using Model;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProtectedSessionStorage sessionStorage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProtectedLocalStorage localStorage { get; set; }
     }
 }
 #pragma warning restore 1591

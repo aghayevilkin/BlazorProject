@@ -1,5 +1,7 @@
 ﻿@page "/bindprop"
 @using Model
+@inject ProtectedLocalStorage localStorage
+@inject ProtectedSessionStorage sessionStorage
 
 <div class="bg-light border p-2">
     <h2 class="bg-light border p-2">
@@ -44,10 +46,14 @@
     }
 </div>
 
+<p>Counter Value from other page (Session) : @CounterSession</p>
+<p>Counter Value from other page (Local) : @CounterLocal</p>
 
 @code{
     string SelectRoomProp = "";
     List<BlazorRoom> RoomList = new List<BlazorRoom>();
+    public int CounterLocal { get; set; }
+    public int CounterSession { get; set; }
 
     BlazorRoom Room = new BlazorRoom()
     {
@@ -56,7 +62,7 @@
         IsActive = true,
         Price = 499,
         RoomProps = new List<BlazorRoomProp>
-        {
+    {
             new BlazorRoomProp{Id=1,Name="Sq Ft",Value="100"},
             new BlazorRoomProp{Id=2,Name="Occupancy",Value="3"},
         }
@@ -64,37 +70,50 @@
 
 
 
-    protected override void OnInitialized()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        base.OnInitialized();
 
-        RoomList.Add(new BlazorRoom()
+        @if (firstRender)
         {
-            Id = 201,
-            RoomName = "Villa Suite One Bed Room",
-            IsActive = true,
-            Price = 399,
-            RoomProps = new List<BlazorRoomProp>
+            var resultLocal = await localStorage.GetAsync<int>("counterLocal");
+            CounterLocal = resultLocal.Success ? resultLocal.Value : 0;
+
+            var resultSession = await sessionStorage.GetAsync<int>("counterSession");
+            CounterSession = resultSession.Success ? resultSession.Value : 0;
+
+
+
+            RoomList.Add(new BlazorRoom()
+            {
+                Id = 201,
+                RoomName = "Villa Suite One Bed Room",
+                IsActive = true,
+                Price = 399,
+                RoomProps = new List<BlazorRoomProp>
             {
             new BlazorRoomProp{Id=1,Name="Sq Ft",Value="330"},
             new BlazorRoomProp{Id=2,Name="Occupancy",Value="4"},
             }
-        });
+            });
 
 
-        RoomList.Add(new BlazorRoom()
-        {
-            Id = 301,
-            RoomName = "Villa Suite Two Bed Room",
-            IsActive = true,
-            Price = 699,
-            RoomProps = new List<BlazorRoomProp>
+            RoomList.Add(new BlazorRoom()
+            {
+                Id = 301,
+                RoomName = "Villa Suite Two Bed Room",
+                IsActive = true,
+                Price = 699,
+                RoomProps = new List<BlazorRoomProp>
             {
             new BlazorRoomProp{Id=1,Name="Sq Ft",Value="150"},
             new BlazorRoomProp{Id=2,Name="Occupancy",Value="6"},
             }
-        });
+            });
 
+
+            StateHasChanged();
+        }
+    
     }
 
 

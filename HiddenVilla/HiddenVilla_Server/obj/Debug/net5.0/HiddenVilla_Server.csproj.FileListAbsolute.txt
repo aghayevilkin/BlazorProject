@@ -272,3 +272,10 @@ C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Shared\NotAuthorizedMessage.razor.g.cs
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Common.dll
 C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Common.pdb
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Microsoft.AspNetCore.Components.ProtectedBrowserStorage.dll
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\Radzen.Blazor.dll
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\HotelRoomOrder\HotelRoomOrderList.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\HotelRoomOrder\HotelRoomOrderList.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\RazorDeclaration\Pages\HotelRoomOrder\HotelRoomOrderManagement.razor.g.cs
+C:\Users\ASUS\source\repos\HiddenVilla\HiddenVilla_Server\obj\Debug\net5.0\Razor\Pages\HotelRoomOrder\HotelRoomOrderManagement.razor.g.cs

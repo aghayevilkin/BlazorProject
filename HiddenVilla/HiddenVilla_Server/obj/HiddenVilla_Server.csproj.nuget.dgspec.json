@@ -275,6 +275,10 @@
               "target": "Package",
               "version": "[1.0.7, )"
             },
+            "Microsoft.AspNetCore.Components.ProtectedBrowserStorage": {
+              "target": "Package",
+              "version": "[5.0.0-rc.1.20451.17, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.12, )"
@@ -302,6 +306,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[3.15.6, )"
             }
           },
           "imports": [
